@@ -44,7 +44,7 @@
 						<!-- Post -->
 							<section class="post">
 								<header class="major">
-									<h1>MY ARTEFACT</h1>
+									<h1 id="ARTEFACT">MY ARTEFACT</h1>
 								</header>
 
 								<!-- Text stuff -->
@@ -151,7 +151,51 @@ if __name__ == '__main__':
 </code></pre>
 									
 
+									<h3>Tutorial Labs Challenge: Classes and Objects External tool</h3>
+									<p>This challenge will make some changes to the previous challenge. You will make use of your knowledge of classes, in addition to looping and lists. Lists can store objects so this challenge will require you to create a list of Person objects, that you will instantiate and add to the list.</p>
+									<p>   1. In this challenge, you will create five (5) Person objects with appropriate values for first name, last name, weight, and height.</p>
+									<p>   2. For this exercise, you can use the names p1, p2, p3, etc. for the names of your instantiated objects.</p>
+									<p>   3. Once you have all five objects, create a list and store the objects in the list. Recall, an object is simply an instance of a user-defined type, so the syntax is the same as adding any other variable to a list.</p>
+									<p>   4. Using a for loop, iterate over your list and print out the first names of each of your Person objects that you created.</p>
+									<p>   5. Step 4 will require you to think about how you will access each member of the list and then how to access the correct attribute of that object to output it with a print statement</p>
+																<pre><code>#Create a list named List
+List = []
 
+#Create a class Person
+class Person:
+    """Represents a generic Person."""
+    def __init__(self, first, last, weight, height):
+          self.first_name = first
+          self.last_name = last
+          self.weight_in_lbs = weight
+          self.height_in_inches = height
+
+#Create five person objects         
+p1 = Person('Tom', 'Thumb', 179, 62)
+p2 = Person('George', 'Hey', 180, 78)
+p3 = Person('Micheal', 'Hill', 176, 70)
+p4 = Person('Wendy', 'Joy', 153, 56)
+p5 = Person('Ray',  'White', 168, 65)
+
+#Restore the five objets in the list
+List = List = [p1]+[p2]+[p3]+[p4]+[p5]
+
+#Using a for loop, and print out the first names of each of the person I created
+for p in List:
+    print(p.first_name)
+    
+print()
+
+#Using a for loop, and print out all the information of each of the person I created
+for p in List:
+    print(p.first_name + ' ' + p.last_name + ' weighs ' + str(p.weight_in_lbs) + 'lbs' + ' height ' + str(p.height_in_inches) + 'inchs.')
+</code></pre>
+
+									<h3>Other title</h3>
+									<p></p>
+									
+									<h3 style="text-align:center"><a href="#ARTEFACT">Back to Top</a></h3>
+									
 				<!-- Copyright -->
 					<div id="copyright">
 						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
