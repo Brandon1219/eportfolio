@@ -51,9 +51,10 @@
 									<p>My answers to and outputs from exercises carried out during the module, including the ERD diagram created in Unit 8 and all your coding scripts and system designs.</p>
 									<hr />	
 												
-									<h2>Unit 3:<br />Fundamentals of Object-Oriented Design</h2>
+									<h2 style="text-align:centre">Unit 3</h2>
+									<h2>Fundamentals of Object-Oriented Design</h2>
 									<p>This unit focuses on introducing the concept of Object-Oriented Design. This is a structured approach to designing software systems where elements of the system are conceptualised as data structures called Objects. These objects have both states, or characteristics, as well as behaviours, or methods, which are used to modify the states. We will explore the underlying principles of the object-oriented design and investigating the core concepts.</p>
-									<hr />
+									</ul>
 									
 									<h2>Codio Exercise - Classes and Objects</h2>
 									<h3>Exercise 15.5 Objects are mutable</h3>
@@ -81,57 +82,75 @@ box.corner.x, box.corner.y
 box2.corner.x, box2.corner.y
 </code></pre>
 									
-									<h3>Exercise 15.5 Objects are mutable</h3>
-									<p></p>
+									<h3>Exercises: Classes and Objects 15.1</h3>
+									<p>Write a definition for a class named Circle with attributes center and radius, where center is a Point object and radius is a number.</p>
+									<p>Instantiate a Circle object that represents a circle with its center at   (150,100)  and radius 75.</p>
+									<p>Write a function named <code>point_in_circle</code> that takes a Circle and a Point and returns True if the Point lies in or on the boundary of the circle.</p>
+									<p>Write a function named <code>rect_in_circle</code> that takes a Circle and a Rectangle and returns True if the Rectangle lies entirely in or on the boundary of the circle.</p>
+									<p>Write a function named <code>rect_circle_overlap</code> that takes a Circle and a Rectangle and returns True if any of the corners of the Rectangle fall inside the circle. Or as a more challenging version, return True if any part of the Rectangle falls inside the circle.</p>
+																		<pre><code>class Point:
+    """Represents a point in 2-D space."""
+    
+class Circle:
+    """Represents a circle. 
+
+    attributes: center, radius.
+    """
+    
+class Rectangle:
+    """Represents a rectangle. 
+
+    attributes: width, height, corner.
+    """  
+
+import math
+def point_in_circle(pnt, cir):
+    distance = math.sqrt((pnt.x-cir.center.x)**2 + (pnt.y-cir.center.y)**2)
+    if distance <= cir.radius:
+        return True
+    return False
+
+def rect_in_circle(rec, cir):
+    d1 = math.sqrt((rec.corner.x-cir.center.x)**2 + (rec.corner.y-cir.center.y)**2)
+    d2 = math.sqrt((rec.corner.x+rec.width-cir.center.x)**2 + (rec.corner.y-cir.center.y)**2)
+    d3 = math.sqrt((rec.corner.x-cir.center.x)**2 + (rec.corner.y+rec.height-cir.center.y)**2)
+    d4 = math.sqrt((rec.corner.x+rec.width-cir.center.x)**2 + (rec.corner.y+rec.height-cir.center.y)**2)
+    if d1 <= cir.radius and d2 <= cir.radius and d3 <= cir.radius and d4 <= cir.radius:
+        return True
+    return False
+
+def rect_circle_overlap(rec, cir):
+    d1 = math.sqrt((rec.corner.x-cir.center.x)**2 + (rec.corner.y-cir.center.y)**2)
+    d2 = math.sqrt((rec.corner.x+rec.width-cir.center.x)**2 + (rec.corner.y-cir.center.y)**2)
+    d3 = math.sqrt((rec.corner.x-cir.center.x)**2 + (rec.corner.y+rec.height-cir.center.y)**2)
+    d4 = math.sqrt((rec.corner.x+rec.width-cir.center.x)**2 + (rec.corner.y+rec.height-cir.center.y)**2)
+    if d1 <= cir.radius or d2 <= cir.radius or d3 <= cir.radius or d4 <= cir.radius:
+        return True
+    return False
+
+def main():
+    box = Rectangle()
+    box.width = 100.0
+    box.height = 200.0
+    box.corner = Point()
+    box.corner.x = 50.0
+    box.corner.y = 50.0
+
+    circle = Circle
+    circle.center = Point()
+    circle.center.x = 150.0
+    circle.center.y = 100.0
+    circle.radius = 75.0
+
+    print(point_in_circle(box.corner, circle))
+    print(rect_in_circle(box, circle))
+    print(rect_circle_overlap(box, circle))
+
+if __name__ == '__main__':
+    main()
+</code></pre>
 									
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>1234 Somewhere Road #87257<br />
-								Nashville, TN 00000-0000</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(000) 000-0000</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">info@untitled.tld</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+
 
 				<!-- Copyright -->
 					<div id="copyright">
