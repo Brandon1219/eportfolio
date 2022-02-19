@@ -210,6 +210,110 @@ for p in List:
 									<pre><code>def is_after(t1, t2):
     return (t1.hour, t1.minute, t1.second) > (t2.hour, t2.minute, t2.second)
 </code></pre>
+
+									<h3>Exercise 16.1</h3>
+									<pre><code>def div_times(t, d):
+    """dived time objects with disdance
+    t: Time
+    returns: Time
+    """
+    assert valid_time(t)
+    seconds = time_to_int(t) / d
+    return int_to_time(seconds)
+
+avg = div_times(race_time, 26.2)
+print_time(avg)
+</code></pre>
+
+									<h3>Exercise 16.2</h3>
+									<pre><code>from datetime import date
+today = date.today()
+weekday = date.weekday(today)
+print(today)
+print(weekday)
+</code></pre>
+
+									<h3>Challenge </h3>
+									<pre><code>class Person:
+    count = 0
+    BMI = 0
+    """Represents a generic Person."""
+    
+    def __init__(self, first, last, weight, height):
+        self.first_name = first
+        self.last_name = last
+        self.weight_in_lbs = weight
+        self.height_in_inches = height
+        Person.count = Person.count + 1
+
+    def calc_bmi(self):        
+        return (self.weight_in_lbs * 703) / self.height_in_inches ** 2
+        Person.BMI = (self.weight_in_lbs * 703) / self.height_in_inches ** 2
+
+    def print_self(self):        
+        #return ('first_name:'self.first_name,(self.weight_in_lbs * 703) / self.height_in_inches ** 2)
+        return ('first name: %s, last_name: %s, weight: %d, heightt: %d, BMI: %d' % (self.first_name, self.last_name, self.weight_in_lbs,self.height_in_inches,self.calc_bmi()))
+      
+    @classmethod
+    def print_count(cls):
+        return cls.count
+
+    def print_BMI_range(cls):
+        if cls.BMI < 18.5:
+            return 'BMI range: underweight'
+        elif cls.BMI >= 18.5 & cls.BMI < 25:
+            return 'BMI range: healthyweight'
+        elif cls.BMI >= 25 & cls.BMI < 30:
+            return 'BMI range: overweight'
+        elif cls.BMI < 30:
+            return 'BMI range: obesity'
+        else:
+            return 'BMI range: Not defined'
+   
+p = Person('Tom', 'Thumb', 150, 62)
+p2 = Person('Fred', 'Flint', 225, 57)
+
+print(p.print_self())
+print(p.print_BMI_range())
+</code></pre>
+
+									<h3>Exercise 17.5 -  The init method</h3>
+									<p>As an exercise, write an init method for the Point class that takes x and y as optional parameters and assigns them to the corresponding attributes.</p>
+									<pre><code>class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+             
+point = Point(3,8)
+</code></pre>
+
+									<h3>Exercise 17.6 - The __str__ method</h3>
+									<p>As an exercise, write a str method for the Point class. Create a Point object and print it.</p>
+									<pre><code>class Point:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+    def __str__(self):
+        return '%d,%d' % (self.x, self.y)
+
+point = Point(3,8)
+print(point)  
+</code></pre>
+
+									<h3>Exercise 17.7 - Operator overloading</h3>
+									<p>As an exercise, write an add method for the Point class.</p>
+									<pre><code>class Point:
+    def __add__(self, other):
+        addpoint = self.x + other.x, self.y + other.y
+        return addpoint        
+</code></pre>
+
+									<h3>Exercise 16.2</h3>
+									<p>Write a boolean function called is_after that takes two Time objects, t1 and t2, and returns True if t1 follows t2 chronologically and False otherwise. Challenge: don’t use an if statement.</p>
+									<pre><code>def is_after(t1, t2):
+    return (t1.hour, t1.minute, t1.second) > (t2.hour, t2.minute, t2.second)
+</code></pre>
+
 									<h3> </h3>
 									<p></p>
 									
