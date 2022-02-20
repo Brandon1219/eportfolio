@@ -53,7 +53,8 @@
 										<ul>
 											<li><a href="#CAO">Classes and Objects</a></li>
 											<li><a href="#CFACM">Class Functions and Class Methods</a></li>
-											<li>b</li>
+											<li><a href="#INH">Inheritance</a></li>
+											<li><a href="#ENC">Encapsulation</a></li>Encapsulation
 											<li>c</li>
 										</ul>	
 									</div>
@@ -308,7 +309,117 @@ print(point)
         return addpoint        
 </code></pre>
 
-									<h3>Exercise 16.2</h3>
+
+
+									<h2 id="INH">Inheritance</h2>
+									<h3>Exercise 18.1</h3>
+									<pre><code>class PingPongParent:
+    pass
+
+class Ping(PingPongParent):
+    def __init__(self, pong):
+        self.pong = pong
+
+
+class Pong(PingPongParent):
+    def __init__(self, pings=None):
+        if pings is None:
+            self.pings = []
+        else:
+            self.pings = pings
+
+    def add_ping(self, ping):
+        self.pings.append(ping)
+
+pong = Pong()
+ping = Ping(pong)
+pong.add_ping(ping)
+</code></pre>
+
+									<h3>Exercise 18.3</h3>
+									<pre><code># inside class Time: 
+	def __lt__(self, other): 
+		t1 = self.time
+		t2 = other.time 
+return t1 < t2
+</code></pre>
+
+									<h3>Exercise 18.9 - Debuggin</h3>
+									<p>To find the class that provides the definition of the method.</p>
+									<pre><code>def find_defining_class(obj, meth_name): 
+	for ty in type(obj).mro(): 
+		if meth_name in ty.__dict__: 
+			return ty
+
+>>> hand = Hand() 
+>>> find_defining_class(hand, 'shuffle') 
+<class 'Card.Deck'>
+</code></pre>
+
+									<h3>challenge</h3>
+									<p>Write a boolean function called is_after that takes two Time objects, t1 and t2, and returns True if t1 follows t2 chronologically and False otherwise. Challenge: don’t use an if statement.</p>
+									<pre><code>class Person:
+    count = 0
+    
+    """Represents a generic Person."""
+    
+    def __init__(self, first, last, weight, height, age = 0, gender = '',ttype = 1):
+        self.first_name = first
+        self.last_name = last
+        self.weight_in_lbs = weight
+        self.height_in_inches = height
+        self.this_age = age
+        self.this_gender = gender
+        self.bmi = ''
+        self.teacher_type = ttype
+        #self.calc_bmi = BMIrisk
+        Person.count = Person.count + 1
+
+@classmethod
+def print_count(cls,):
+  return cls.count
+
+class Adult(Person):
+    def calc_bmi(self):
+        bmi_tmp = (self.weight_in_lbs * 703) / self.height_in_inches ** 2
+
+        print('BMI number is: ' + str(bmi_tmp))
+        
+        if bmi_tmp < 18:
+            self.bmi = 'Underweight'
+        elif bmi_tmp > 18 and bmi_tmp < 25:
+            self.bmi = 'Normal'
+        elif bmi_tmp > 25 and bmi_tmp < 30:
+            self.bmi = 'Overweight'
+        elif bmi_tmp > 30:
+            self.bmi = 'Obese'
+        return self.bmi
+
+class Teacher(Adult):
+    def calc_bmi(self):
+        bmi_tmp = (self.weight_in_lbs * 703) / self.height_in_inches ** 2
+
+        print('BMI number is: ' + str(bmi_tmp))
+        
+        if bmi_tmp < 18:
+            self.bmi = 'Underweight'
+        elif bmi_tmp > 18 and bmi_tmp < 25:
+            self.bmi = 'Normal'
+        elif bmi_tmp > 25 and bmi_tmp < 30:
+            self.bmi = 'Overweight'
+        elif bmi_tmp > 30:
+            self.bmi = 'Obese'
+        return self.bmi
+</code></pre>
+
+									<h2 id="ENC">Encapsulation</h2>
+									<h3>Exercise </h3>
+									<p>Write a boolean function called is_after that takes two Time objects, t1 and t2, and returns True if t1 follows t2 chronologically and False otherwise. Challenge: don’t use an if statement.</p>
+									<pre><code>def is_after(t1, t2):
+    return (t1.hour, t1.minute, t1.second) > (t2.hour, t2.minute, t2.second)
+</code></pre>
+
+									<h3>challenge</h3>
 									<p>Write a boolean function called is_after that takes two Time objects, t1 and t2, and returns True if t1 follows t2 chronologically and False otherwise. Challenge: don’t use an if statement.</p>
 									<pre><code>def is_after(t1, t2):
     return (t1.hour, t1.minute, t1.second) > (t2.hour, t2.minute, t2.second)
