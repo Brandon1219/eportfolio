@@ -54,7 +54,7 @@
 											<li><a href="#CAO">Classes and Objects</a></li>
 											<li><a href="#CFACM">Class Functions and Class Methods</a></li>
 											<li><a href="#INH">Inheritance</a></li>
-											<li><a href="#ENC">Encapsulation</a></li>Encapsulation
+											<li><a href="#ENC">Encapsulation</a></li>
 											<li>c</li>
 										</ul>	
 									</div>
@@ -413,16 +413,217 @@ class Teacher(Adult):
 </code></pre>
 
 									<h2 id="ENC">Encapsulation</h2>
-									<h3>Exercise </h3>
-									<p>Write a boolean function called is_after that takes two Time objects, t1 and t2, and returns True if t1 follows t2 chronologically and False otherwise. Challenge: don’t use an if statement.</p>
-									<pre><code>def is_after(t1, t2):
-    return (t1.hour, t1.minute, t1.second) > (t2.hour, t2.minute, t2.second)
+									<h3>Exercise</h3>
+									<p>Create the method <code>helper_method<code/> that calls <code>__private_method</code> and call this method outside of the class.</p>
+									<pre><code>class PrivateClass:
+  def __init__(self):
+    self.__private_attribute = "I am a private attribute"
+    
+  def __private_method(self):
+    return "I am a private method"
+  
+  def helper_method(self):
+    return self.__private_method()
 </code></pre>
 
-									<h3>challenge</h3>
-									<p>Write a boolean function called is_after that takes two Time objects, t1 and t2, and returns True if t1 follows t2 chronologically and False otherwise. Challenge: don’t use an if statement.</p>
-									<pre><code>def is_after(t1, t2):
-    return (t1.hour, t1.minute, t1.second) > (t2.hour, t2.minute, t2.second)
+									<h3>Lab Challenge</h3>
+									<pre><code>class Person:
+  def __init__(self, name, age, occupation):
+   self._name = name
+   self._age = age
+   self._occupation = occupation
+  
+  def get_name(self):
+    return self._name
+  def set_name(self, new_name):
+    self._name = new_name
+
+  def get_age(self):
+    return self._age
+  def set_age(self, new_age):
+    self._age = new_age
+
+  def get_occupation(self):
+    return self._occupation
+  def set_occupation(self, new_occupation):
+    self._occupation = new_occupation
+
+my_person = Person("Citra Curie", 16, "student")
+print(my_person.get_name())
+my_person.set_name("Rowan Faraday")
+print(my_person.get_name())
+print(my_person.get_age())
+my_person.set_age(18)
+print(my_person.get_age())
+print(my_person.get_occupation())
+my_person.set_occupation("plumber")
+print(my_person.get_occupation())
+</code></pre>
+
+									<h3>Exercise 1</h3>
+									<pre><code>class Country:
+  def __init__(self, name, capital, population, continent):
+    self._name = name
+    self._capital = capital
+    self._population = population
+    self._continent = continent
+
+  def get_name(self):
+    return self._name
+  def set_name(self, new_name):
+    self._name = new_name
+
+  def get_capital(self):
+    return self._capital
+  def set_capital(self, new_capital):
+    self._capital = new_capital  
+    
+  def get_population(self):
+    return self._population
+  def set_population(self, new_population):
+    self._population = new_population
+
+  def get_continent(self):
+    return self._continent
+  def set_continent(self, new_continent):
+    self._continent = new_continent    
+
+  name = property(get_name, set_name)
+  capital = property(get_capital, set_capital)
+  population = property(get_population, set_population)
+  continent = property(get_continent, set_continent)
+
+my_country = Country("France", "Paris", 67081000, "Europe")
+print(my_country.name)
+print(my_country.capital)
+print(my_country.population)
+print(my_country.continent)
+</code></pre>
+
+									<h3>Exercise 2</h3>
+									<pre><code>class Artist:
+  def __init__(self, name, medium, style, famous_artwork):
+    self.__name = name
+    self.__medium = medium
+    self.__style = style
+    self.__famous_artwork = famous_artwork
+
+my_artist = Artist('Bill Watterson', 'ink and paper', 'cartoons', 'Calvin and Hobbes')
+
+#print (my_artist.__name)
+#print (my_artist.__medium)
+#print (my_artist.__style)
+#print (my_artist.__famous_artwork)
+
+print (my_artist._Artist__name)
+print (my_artist._Artist__medium)
+print (my_artist._Artist__style)
+print (my_artist._Artist__famous_artwork)
+</code></pre>
+
+									<h3>Exercise 3</h3>
+									<pre><code>class BankAccount:
+  def __init__(self):
+    self._checking = ""
+    self._savings = ""
+
+  def get_checking(self):
+    return self._checking
+  def set_checking(self, new_checking):
+    self._checking = new_checking
+
+  def get_savings(self):
+    return self._savings
+  def set_savings(self, new_savings):
+    self._savings = new_savings
+
+my_account = BankAccount()
+my_account.set_checking(523.48)	
+print(my_account.get_checking())
+my_account.set_savings(386.15)
+print(my_account.get_savings())
+</code></pre>
+
+									<h3>Exercise 4</h3>
+									<pre><code>class Dancer:
+  def __init__(self, name, nationality, style):
+    self._name = name
+    self._nationality = nationality
+    self._style = style
+
+  @property
+  def name(self):
+    return self._name 
+  @name.setter
+  def name(self, new_name):
+    self._name = new_name
+
+  @property
+  def nationality(self):
+    return self._nationality 
+  @nationality.setter
+  def nationality(self, new_nationality):
+    self._nationality = new_nationality
+
+  @property
+  def style(self):
+    return self._style
+  @style.setter
+  def style(self, new_style):
+    self._style = new_style
+
+my_dancer = Dancer("Savion Glover", "American", "tap")
+
+print(my_dancer.name)
+print(my_dancer.nationality)
+print(my_dancer.style)	
+my_dancer.name = 'Anna Pavlova'	
+my_dancer.nationality = 'Russian'	
+my_dancer.style = 'ballet'
+print(my_dancer.name)
+print(my_dancer.nationality)
+print(my_dancer.style)
+</code></pre>
+
+									<h3>Exercise 5</h3>
+									<pre><code>class Cyclist:
+  def __init__(self, name, nationality, nickname):
+    self._name = name
+    self._nationality = nationality
+    self._nickname = nickname
+
+  @property
+  def name(self):
+    return self._name
+  @name.setter
+  def name(self, new_name):
+    self._name = new_name
+
+  @property
+  def nationality(self):
+    return self._nationality
+  @nationality.setter
+  def nationality(self, new_nationality):
+    self._nationality = new_nationality
+
+  @property
+  def nickname(self):
+    return self._nickname
+  @nickname.setter
+  def nickname(self, new_nickname):
+    self._nickname = new_nickname
+
+my_cyclist = Cyclist("Greg LeMond", "American", "Le Montstre")
+
+print(my_cyclist.name)
+print(my_cyclist.nationality)
+print(my_cyclist.nickname)
+my_cyclist.name = "Eddy Merckx"
+my_cyclist.nationality = "Belgian"
+my_cyclist.nickname = "The Cannibal"
+print(my_cyclist.name)
+print(my_cyclist.nationality)
+print(my_cyclist.nickname)
 </code></pre>
 
 									<h3> </h3>
