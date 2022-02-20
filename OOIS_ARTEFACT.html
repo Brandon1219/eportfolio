@@ -48,18 +48,50 @@
 
 								<!-- Text stuff -->
 									<p>My answers to and outputs from exercises carried out during the module, including the ERD diagram created in Unit 8 and all your coding scripts and system designs.</p>
-									<hr />	
+									<hr />
+									<h3><a href="#PA">Practical Activity</a></h3>
+									<div class="row">
+										<ul>
+											<li><a href="#CAOOD">Creating an object-oriented design</a></li>
+											<li><a href="#CD">Class Diagrams</a></li>
+											<li><a href="#NIP">Normalisation in practice</a></li>
+										</ul>	
+									<h3><a href="#CODIOEX">Codio Exercise</a></h3>
 									<div class="row">
 										<ul>
 											<li><a href="#CAO">Classes and Objects</a></li>
 											<li><a href="#CFACM">Class Functions and Class Methods</a></li>
 											<li><a href="#INH">Inheritance</a></li>
 											<li><a href="#ENC">Encapsulation</a></li>
-											<li>c</li>
 										</ul>	
 									</div>
-									<hr />												
-									<h2 style="text-align:center">Codio Exercise</h2>
+									<hr />	
+
+
+									<h2 id="PA" style="text-align:center">Practical Activity</h2>
+									<h2 id="CAOOD">Creating an object-oriented design</h2>
+									<p>My supermarket is online-based. It provides services for the customer to shop online from the catalog which is based on the Products, ProductPrice, and the Category tables.</p>
+									<p>To access the service, the customer should register to have an account first. Then the customer may place orders and view order status. Each order will generate bonus points that will affect the customer's membership_status, to further unlock the customers to a variety of discounts.</p>
+									<p>The Staff will maintain the online supermarket including updating the product catalog and overlooking the inventory. </p>
+									<a href="#" class="image main"><img src="images/activity1.png" alt="" /></a>
+
+									<h2 id="CD">Class Diagrams</h2>
+									<p>This is a class diagram based on my previous diagram of the online supermarket.</p>
+									<p>I have made some enhancements to the diagram. Some classes is simplified while only the necessary classes remain.</p>
+									<p>I also specify the relationship between each class.</p>
+									<a href="#" class="image main"><img src="images/activity2.png" alt="" /></a>
+
+									<h2 id="NIP">Normalisation in practice</h2>
+									<p>I merge the client and tenant entities into the client table by setting up an is_tenent column.</p>
+									<p>The contract table is added with an identical id. Each contract contains information about properties, clients, and contractors by foreign keys. All these three pieces of information have their own tables.</p>
+									<p>Owner info is included in the properties table as each property will always have the same owner.</p>
+									<p>The maintenance cases table includes the contract by a foreign key as the contract covered all the necessary information.</p>
+									<a href="#" class="image main"><img src="images/activity3.png" alt="" /></a>
+									
+									<hr />
+									
+																				
+									<h2 id="CODIOEX" style="text-align:center">Codio Exercise</h2>
 									<h2 id="CAO">Classes and Objects</h2>
 
 									<h3>Exercise 15.5 - Objects are mutable</h3>
