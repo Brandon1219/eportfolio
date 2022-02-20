@@ -61,6 +61,17 @@ Polymorphism
 Between super class - sub class
 </code></pre>
 
+									<h2>Class Functions and Class Methods</h2>
+									<h3>Assert Statement</h3>
+									<p>Check error with normal conditions:</p>
+									<pre><code>if not valid_time(t1) or not valid_time(t2): 
+raise ValueError('invalid Time object in add_time')
+</code></pre>
+
+									<p>Check error with assert statement:</p>
+									<pre><code>assert valid_time(t1) and valid_time(t2)
+</code></pre>
+
 									<h2>UML (unified modelling language)</h2>
 									<p>My note:</p>
 									<pre><code>Action - use arrow with multiplicity mark
@@ -95,7 +106,20 @@ print(c.name)
   def name(self, new_name):
     self._name = new_name
 c.name = "MyNewName"
-</code></pre>									
+</code></pre>		
+
+									<h3>Getter and setter with property function:</h3>
+									<pre><code>  def get_name(self):
+    return self._name
+  def set_name(self, new_name):
+    self._name = new_name 
+  name = property(get_name, set_name)
+
+
+print(c.name)
+c.name = "Hobbes"
+</code></pre>	
+							
 									<h3> </h3>
 									<p></p>
 									
