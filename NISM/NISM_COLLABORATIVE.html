@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="OOIS.html" class="logo">OBJECT-ORIENTED<br />INFORMATION SYSTEMS</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">About Me</a></li>
+							<li class="active"><a href="OOIS.html">OOIS_PCOM7E</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+					
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1 id="COLLABORATIVE">COLLABORATIVE DISCUSSION FORUM SUMMARIES</h1>
+								</header>
+
+								<!-- Text stuff -->
+									<h2 style="text-align:center">My Initial Post</h2>
+									<h3>Background</h3>
+									<p>'The NYSE Retail Liquidity Program (RLP) offers Retail Member Organizations (RMOs) the opportunity to receive price improvement on retail orders across NYSE & Arca. The program’s open, fair-access model means that any NYSE Retail Member Organization can seek consistent liquidity inside the bid/offer spread.' (Anon, 2021)</p>
+									<p>The RLP was approved by SEC in July 2012 and would be launched in August 2012, which means the time in between, the stock trading firms would need to develop a new approach to adapt to this new change. (Matthew, 2012)</p>
+									<h3>Incident</h3>
+									<p>On the first day of the RLP launch, the Knight Capital Group experienced a malfunction on their software and caused a $ 440 million loss in 30 minutes. This incident occurred after their new trading software feature was implemented. 'The code itself was a high-frequency trading algorithm designed to buy and sell massive amounts of stock in a short period of time.' (Matthew, 2012) The bug in the code led to the execution of a series of unexpected buy-ins in a short time, and cause the Knight Capital Group a significant loss when they have to sell out those over-valued stock the next day. (Brian, 2012)</p>
+									<p>Although the main cause of this code error was not disclosed by Knight Capital, there might be the possibility that the testing algorithm was mistakenly implemented into the production. (Matthew, 2012)</p>
+									<h3>Impact</h3>
+									<p>Knight Capital was one of the largest financial service firms in the stock market. The glitch cost Knight Capital not only $440 million, but also its reputation in the trading industry. (Nathaniel, 2012) </p>
+									<h3>References</h3>
+									<p>Anon (2021) The New York Stock Exchange’s Retail Liquidity Program. Available from: https://www.nyse.com/publicdocs/nyse/markets/liquidity-programs/RLP_Fact_Sheet.pdf [Accessed 18 Nov 2021].</p>
+									<p></p>
+									<p></p>
+									<p></p>
+
+									
+									<hr />	
+									
+									<h2 style="text-align:center">Collaborateive Discussion</h2>
+									<h2>Post by Alberto Rossotto</h2>
+									<h3>Possible measures</h3>
+									<p>SEC discovered that the problem stemmed from an old function called "power peg". Originally power peg was supposed to execute many child orders with a limit set by the maximum capacity of the parent order. Many years before the incident, the limit was moved to a different component, and power peg was hidden behind a flag that made the code unreachable at runtime. In 2012 two errors happened. The flag blocking power peg was repurposed and an old version of the code was installed by mistake in one of the eight servers. This combination activated power peg that kept running without limits (Murphy, 2013).</p>
+									<p>As pointed out by SEC, Knight made several mistakes ignoring all the rules that impose supervision and measures that can mitigate this kind of incident. From a software development perspective, keeping old dead code is a bad but very common practice. Especially dealing with legacy code (power keg already existed in 2003) very often the rule is "if it works, don't touch it", that is a good rule until an incident happens.</p>
+									<h3>References</h3>
+									<p>Murphy, E. M. (2013) 'Order instituting administrative and cease-and-desist proceedings, pursuant to sections 15(b) and 21c of the securities exchange act of 1934, making findings, and imposing remedial sanctions and a cease-and-desist order'. Securities Exchange Act of 1934, Release No. 70694 / October 16, 2013. Administrative proceeding File No. 3-1557. Available from https://www.sec.gov/litigation/admin/2013/34-70694.pdf. [Accessed on 20/11/2021]</p>
+									<hr />	
+
+									<h2>Post by Yin Ping Lai</h2>
+									<p>The Knight Capital incident teaches us a lesson. If the new developed system has inadequate tests, the system can causes a huge losses in a very short period. In this case, it caused $440 million dollars losses in only 30 minutes. One of the testing strategies is setting up a sandboxed environment which imitating the same configuration as the production environment for testing the behaviours of the new developed systems/features (Techopedia 2020). Before launching the new developed system/feature to the production environment. The QA team engineers should conduct tests and observe the behaviour of the system/feature. Make sure the system has been implemented as expected. This technique is also called "black box" testing. </p>
+									<h3>References</h3>
+									<p>Unknown (2020) Sandbox. Techopedia. Available from: https://www.techopedia.com/definition/27681/sandbox-software-testing [Accessed 22 Nov 2021].</p>
+									<hr />	
+
+									<h2>Post by Professor Oliver Buckley</h2>
+									<p>The Knight Capital incident is an interesting one, and you raise some good points. How could they have developed the software differently to avoid this issue? For example, were there issues around a platform that automated buying/selling?</p>
+									<hr />	
+
+									<h2>Post by Sathira Padukka</h2>
+									<p>As mentioned in the above this was caused by an algorithm called “Power Peg". Knight Capital had stopped using this piece of code since 2003. This is a bad practice having dead code during deployments. Also, the new RLP code had repurposed a flag that was formerly used to activate the Power Peg code; the intent was that when the flag was set to “yes,” the new RLP component – not Power Peg – would be activated. Such repurposing often creates confusion, had no substantial benefit. (Dolfing, 2019). This shows how important regression testing and code refactoring is. If this code was refactored early on and tested thoroughly using automation and manual testing, I think this bug/issue could have been avoided, saving a lot of money in the process.</p>
+									<p>Dolfing, Henrico. “Case Study: The $440 Million Software Error at Knight Capital.” Henricodolfing.com, 2019, www.henricodolfing.com/2019/06/project-failure-case-study-knight-capital.html.</p>
+									
+									<a href="#" class="image main"><img src="images/OOIS_3.jpg" alt="" /></a>
+
+									<h3> </h3>
+									<p></p>
+									
+									<h3 style="text-align:center"><a href="#COLLABORATIVE">---Back to Top---</a></h3>
+										
+							</section>
+
+					</div>
+									
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
