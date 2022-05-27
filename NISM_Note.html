@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="OOIS.html" class="logo">OBJECT-ORIENTED<br />INFORMATION SYSTEMS</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">About Me</a></li>
+							<li class="active"><a href="OOIS.html">OOIS_PCOM7E</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+					
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1 id="ANALYSIS">MY ANALYSIS OF THE DATA/INFORMATION</h1>
+								</header>
+
+								<!-- Text stuff -->
+									<p>My analysis of the data/information gathered in the module.</p>
+									<hr />	
+
+									<h2>Classes and Objects</h2>
+									<p>My note:</p>
+									<pre><code>Abstraction: 
+To simplify the objects in to the more relevant data
+Encapsulation:
+To combine data and functions into Class
+Inheritance:
+Super class - Sub class
+Polymorphism
+Between super class - sub class
+</code></pre>
+
+									<h2>Class Functions and Class Methods</h2>
+									<h3>Assert Statement</h3>
+									<p>Check error with normal conditions:</p>
+									<pre><code>if not valid_time(t1) or not valid_time(t2): 
+raise ValueError('invalid Time object in add_time')
+</code></pre>
+
+									<p>Check error with assert statement:</p>
+									<pre><code>assert valid_time(t1) and valid_time(t2)
+</code></pre>
+
+									<h2>UML (unified modelling language)</h2>
+									<p>My note:</p>
+									<pre><code>Action - use arrow with multiplicity mark
+
+Inheritance: (IS-A) - use empty arrow
+The children class can reuse the definition from the parent class.
+
+Composition (HAS-A) - use diamond arrow
+The child cannot be used without parent
+
+Aggregation (USES-A) - use empty diamond arrow
+</code></pre>
+
+
+									<h2>Inheritance</h2>
+									<h3>liskov substitution principle</h3>
+									<p>The Liskov Substitution Principle in practical software development. The principle defines that objects of a superclass shall be replaceable with objects of its subclasses without breaking the application. That requires the objects of your subclasses to behave in the same way.</p>
+
+									<h3>data encapsulation:</h3>
+									<p>	A program development plan that involves a prototype using global variables and a final version that makes the global variables into instance attributes.</p>
+
+									<h2>Encapsulation</h2>
+									<h3>Getter:</h3>
+									<pre><code>  @property
+  def name(self):
+    return self._name
+print(c.name)
+</code></pre>
+
+									<h3>Setter:</h3>
+									<pre><code>  @name.setter
+  def name(self, new_name):
+    self._name = new_name
+c.name = "MyNewName"
+</code></pre>		
+
+									<h3>Getter and setter with property function:</h3>
+									<pre><code>  def get_name(self):
+    return self._name
+  def set_name(self, new_name):
+    self._name = new_name 
+  name = property(get_name, set_name)
+
+
+print(c.name)
+c.name = "Hobbes"
+</code></pre>	
+							
+									<h3> </h3>
+									<p></p>
+									
+									<h3 style="text-align:center"><a href="#ANALYSIS">---Back to Top---</a></h3>
+									
+																			
+							</section>
+
+					</div>
+									
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
