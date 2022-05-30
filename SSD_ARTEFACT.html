@@ -58,12 +58,137 @@
 
 								<!-- Text stuff -->
 									<p>All artefacts demonstrating development over the duration of the module.</p>
+
 									<hr />
 
+                  <h2 id="#" style="text-align:center">Codio Activity</h2>
+                  <h2 id="#">Exploring Python tools and features</h2>
+                  <h3>Part I</h3>                  
+									<p>In this example, you will compile and run a program in C using the Codio workspace provided (Buffer Overflow in C). The program is already provided as bufoverflow.c - a simple program that creates a buffer and then asks you for a name, and prints it back out to the screen.</p>
+                  <p>This is the code in bufoverflow.c (also available in the Codio workspace):</p>
+                  <pre><code>
+  int main(int argc, char **argv)
+  {
+  char buf[8]; // buffer for eight characters
+  printf("enter name:"); 
+  gets(buf); // read from stdio (sensitive function!)
+  printf("%s\n", buf); // print out data stored in buf
+  return 0; // 0 as return value
+  {
+                  </code></pre>
+                  <h4>Questions and my Answers</h4>
+                  <pre><code>	• What happens?
+      Output shows (first time): 
+      Enter name: HungWeiLin
+      HungWeiLin
+      *** stack smashing detected ***: <unknown> terminated
+      Aborted (core dumped)
+      Output shows (first time): 
+      Enter name: HungWeiLin
+      HungWeiLin
+      *** stack smashing detected ***: <unknown> terminated
+      Aborted (core dumped)
+  
+  • What does the output message mean?
+      It means that it have a buffer overflow and the canary gets overwritten by a different value.
+                  </code></pre>
+                  <p></p>
+                  <p></p>
+
+                  <hr />
+                  
+                  <h3>Part II</h3>
+                  <p>Now carry out a comparison of this code with one in Python (Buffer Overflow in Python), following these instructions:</p>
+                  <p>In the Codio workspace, you will be using the file called Overflow.py:</p>
+                  <pre><code> buffer=[None]*10
+  for i in range (0,11):
+      buffer[i]=7
+  print(buffer)
+                  </code></pre>
+                  <h4>Questions and my Answers</h4>
+                  <p>	• Run your code using: Python overflow.py (or use the codio rocket icon)
+										<br /> • What is the result?</p>
+                  <pre><code>	Traceback (most recent call last):
+  File "overflow.py", line 3, in <module>
+    buffer[i]=7
+  IndexError: list assignment index out of range
+                  </code></pre>
+
+                  <p>	• Read about Pylint at http://pylint.pycqa.org/en/latest/tutorial.html
+										<br /> • Install pylint using the following commands: pip install pylint (in the command shell/ interpreter)
+										<br /> • Run pylint on one of your files and evaluate the output: pylint your_file                
+										<br /> • (Make sure you are in the directory where your file is located before running Pylint)
+										<br /> • What is the result?</p>
+                    <pre><code>	************* Module Overflow
+  Overflow.py:4:0: C0303: Trailing whitespace (trailing-whitespace)
+  Overflow.py:5:0: C0304: Final newline missing (missing-final-newline)
+  Overflow.py:1:0: C0103: Module name "Overflow" doesn't conform to snake_case naming style (invalid-name)
+  Overflow.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+  
+  ------------------------------------------------------------------
+                    </code></pre>
+                  
+                  <p> • Does this tell you how to fix the error above?</p>		
+                  <p>Yes!</p>
+
+                  <hr />
+
+                  <h2 id="#">Exploring Python tools and features</h2>
+                  <pre><code>from cmd import Cmd
+import os
+
+class MyPrompt(Cmd):
+    
+
+    def do_list(self, rootdir):     
+        '''lists the contents of the current directory.'''
+        rootdir = '/home/codio/workspace'
+        for file in os.listdir(rootdir):
+            d = os.path.join(rootdir, file)
+            if os.path.isdir(d):
+                print(file)
+                
+    def do_add(self, inp):
+        '''add the two numbers together and provide the result.'''
+        a = input('Enter first number:')
+        b = input('Enter second number:')
+        try:
+            print(int(a)+int(b)) 
+        except: 
+            print("Please enter only number for addition")   
+            
+    def do_exit(self, inp):
+        '''exit the application.'''
+        print("Bye bye!")
+        return True # end the loop
+
+            
+#To run the class in a loop            
+                    MyPrompt().cmdloop()</code></pre>
+                  <p></p>
+                  <p></p>
+
+                  <hr />
+
+                  <h2 id="#">Developing an API for a Distributed Environment</h2>
+                  <h4>Question 1</h4>
+                  <p>Run the API.py code. Take a screenshot of the terminal output. What command did you use to compile and run the code?</p>
+                  <a href="#" class="image main"><img src="images/SSD_art_1.png" alt="" /></a>
+                  <h4>Question 2</h4>
+                  <p>Run the following command at the terminal prompt: w3m  http://127.0.0.1:5000/user/Ann</p>
+                  <p>What happens when this command is run, and why?</p>
+                  <pre><code>The command does not work for me. I have tried to install the w3m, but not able to find any install command that work.
+I assume that the output will be "200 OK"
+                  </code></pre>
+                  <a href="#" class="image main"><img src="images/SSD_art_2.png" alt="" /></a>
+                  <h4>Question 3</h4>
+                  <p>Run the following command at the terminal prompt: w3m  http://127.0.0.1:5000/user/Adam</p>
+                  <p>What happens when this command is run, and why?</p>
+                  <pre><code>I am not able to get the expected output as I mentioned from Question 2.
+But I assume that the output will be "404 Not Found", as the user Adam does not exist.
+                  </code></pre>
 
 
-                  <h2 id="#" style="text-align:center">Practical Activity - Scanning Exercise</h2>
-									<p>Perform a basic scan using standard tools such as traceroute (not ICMP version). Use these basic tools to compile a list that details the following information:</p>
                   <div class="row">
                     <ul>
                       <li>How many hops from your machine to your assigned website?</li>
