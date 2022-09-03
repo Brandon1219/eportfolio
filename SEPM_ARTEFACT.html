@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic Page - Massively by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+        <!-- Header -->
+          <header id="header">
+            <a href="SSD.html" class="logo">Secure Software<br />Development</a>
+          </header>
+
+        <!-- Nav -->
+          <nav id="nav">
+            <ul class="links">
+              <li><a href="index.html">About Me</a></li>
+              <li class="active"><a href="SSD.html">SSD_PCOM7E</a></li>
+
+              <!--
+              <li><a href="index.html">About Me</a></li>
+							<li><a href="generic.html">LCS_PCOM7E</a></li>
+							<li><a href="OOIS.html">OOIS_PCOM7E</a></li>
+							<li class="active"><a href="NISM.html">NISM_PCOM7E</a></li>
+							<li><a href="SSD.html">SSD_PCOM7E</a></li>
+							<li><a href="elements.html">Element</a></li>
+              -->
+
+
+						</ul>
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+					
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1 id="ARTEFACT">MY ARTEFACT</h1>
+								</header>
+
+								<!-- Text stuff -->
+									<p>All artefacts demonstrating development over the duration of the module.</p>
+                  <h3>Artefact Types</h3>
+                  <ul class="list">
+                    <li><a href="#codio"><span class="label">Codio Activity</span></a></li>
+                    <li><a href="#conc"><span class="label">Programming language concepts</span></a></li>
+                    <li><a href="#project"><span class="label">Individual Contribution of Team Project</span></a></li>
+                  </ul>
+
+									<hr />
+
+                  <h2 id="codio" style="text-align:center">Codio Activity</h2>
+                  <h2 id="#">Exploring Python tools and features</h2>
+                  <h3>Part I</h3>                  
+									<p>In this example, you will compile and run a program in C using the Codio workspace provided (Buffer Overflow in C). The program is already provided as bufoverflow.c - a simple program that creates a buffer and then asks you for a name, and prints it back out to the screen.</p>
+                  <p>This is the code in bufoverflow.c (also available in the Codio workspace):</p>
+                  <pre><code>
+  int main(int argc, char **argv)
+  {
+  char buf[8]; // buffer for eight characters
+  printf("enter name:"); 
+  gets(buf); // read from stdio (sensitive function!)
+  printf("%s\n", buf); // print out data stored in buf
+  return 0; // 0 as return value
+  {
+                  </code></pre>
+                  <h4>Questions and my Answers</h4>
+                  <pre><code>	• What happens?
+      Output shows (first time): 
+      Enter name: HungWeiLin
+      HungWeiLin
+      *** stack smashing detected ***: <unknown> terminated
+      Aborted (core dumped)
+      Output shows (first time): 
+      Enter name: HungWeiLin
+      HungWeiLin
+      *** stack smashing detected ***: <unknown> terminated
+      Aborted (core dumped)
+  
+  • What does the output message mean?
+      It means that it have a buffer overflow and the canary gets overwritten by a different value.
+                  </code></pre>
+                  <p></p>
+                  <p></p>
+
+                  <hr />
+                  
+                  <h3>Part II</h3>
+                  <p>Now carry out a comparison of this code with one in Python (Buffer Overflow in Python), following these instructions:</p>
+                  <p>In the Codio workspace, you will be using the file called Overflow.py:</p>
+                  <pre><code> buffer=[None]*10
+  for i in range (0,11):
+      buffer[i]=7
+  print(buffer)
+                  </code></pre>
+                  <h4>Questions and my Answers</h4>
+                  <p>	• Run your code using: Python overflow.py (or use the codio rocket icon)
+										<br /> • What is the result?</p>
+                  <pre><code>	Traceback (most recent call last):
+  File "overflow.py", line 3, in <module>
+    buffer[i]=7
+  IndexError: list assignment index out of range
+                  </code></pre>
+
+                  <p>	• Read about Pylint at http://pylint.pycqa.org/en/latest/tutorial.html
+										<br /> • Install pylint using the following commands: pip install pylint (in the command shell/ interpreter)
+										<br /> • Run pylint on one of your files and evaluate the output: pylint your_file                
+										<br /> • (Make sure you are in the directory where your file is located before running Pylint)
+										<br /> • What is the result?</p>
+                    <pre><code>************* Module Overflow
+  Overflow.py:4:0: C0303: Trailing whitespace (trailing-whitespace)
+  Overflow.py:5:0: C0304: Final newline missing (missing-final-newline)
+  Overflow.py:1:0: C0103: Module name "Overflow" doesn't conform to snake_case naming style (invalid-name)
+  Overflow.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+  
+  ------------------------------------------------------------------
+                    </code></pre>
+                  
+                  <p> • Does this tell you how to fix the error above?</p>		
+                  <p>Yes!</p>
+
+                  <hr />
+
+                  <h2 id="#">Exploring Python tools and features</h2>
+                  <pre><code>from cmd import Cmd
+import os
+
+class MyPrompt(Cmd):
+    
+
+    def do_list(self, rootdir):     
+        '''lists the contents of the current directory.'''
+        rootdir = '/home/codio/workspace'
+        for file in os.listdir(rootdir):
+            d = os.path.join(rootdir, file)
+            if os.path.isdir(d):
+                print(file)
+                
+    def do_add(self, inp):
+        '''add the two numbers together and provide the result.'''
+        a = input('Enter first number:')
+        b = input('Enter second number:')
+        try:
+            print(int(a)+int(b)) 
+        except: 
+            print("Please enter only number for addition")   
+            
+    def do_exit(self, inp):
+        '''exit the application.'''
+        print("Bye bye!")
+        return True # end the loop
+
+            
+#To run the class in a loop            
+                    MyPrompt().cmdloop()</code></pre>
+                  <p></p>
+                  <p></p>
+
+                  <hr />
+
+                  <h2 id="#">Developing an API for a Distributed Environment</h2>
+                  <h4>Question 1</h4>
+                  <p>Run the API.py code. Take a screenshot of the terminal output. What command did you use to compile and run the code?</p>
+                  <a href="#" class="image main"><img src="images/SSD_art_1.png" alt="" /></a>
+                  <h4>Question 2</h4>
+                  <p>Run the following command at the terminal prompt: w3m  http://127.0.0.1:5000/user/Ann</p>
+                  <p>What happens when this command is run, and why?</p>
+                  <pre><code>The command does not work for me. I have tried to install the w3m, but not able to find any install command that work.
+I assume that the output will be "200 OK"
+                  </code></pre>
+                  <a href="#" class="image main"><img src="images/SSD_art_2.png" alt="" /></a>
+                  <h4>Question 3</h4>
+                  <p>Run the following command at the terminal prompt: w3m  http://127.0.0.1:5000/user/Adam</p>
+                  <p>What happens when this command is run, and why?</p>
+                  <pre><code>I am not able to get the expected output as I mentioned from Question 2.
+But I assume that the output will be "404 Not Found", as the user Adam does not exist.
+                  </code></pre>
+
+                  <hr />
+
+                  <h2 id="conc" style="text-align:center">Programming language concepts</h2>
+                  <h2 id="#">Regex</h2>
+                  <h4>Question</h4>
+                  <p>What are the common problems associated with the use of regex? How can these be mitigated?</p>
+                  <a href="#" class="image main"><img src="images/SSD_art_3.png" alt="" /></a>
+
+                  <hr />
+
+                  <h2 id="#">What is an Ontology</h2>
+                  <p>Ontology is a data model that can represent concept in a visualized way. It can capture objects, activities, and relationship and further demonstrate an comprehensive idea.</p>
+                  <p>Computational ontologies are a means to formally model the structure of a system.(Guarino et al., 2009) It can be used as a first stage of software design, as it can visualize all the components and the relationships between each other.</p>
+                  <p></p>
+                  <p>Guarino, N., Oberle, D., & Staab, S. (2009). What Is an Ontology? Handbook on Ontologies, 1–17. https://doi.org/10.1007/978-3-540-92673-3_0</p>
+                  <p></p>
+
+                  <hr />
+
+                  <h2 id="project" style="text-align:center">Individual Contribution of Team Project</h2>
+                  <h2 id="#">Diagrams Design</h2>
+                  <h4>Use Case Diagram – 2FA and Trust-based authorization</h4>
+                  <a href="#" class="image main"><img src="images/SSD_UserCaseDiagram.png" alt="" /></a>
+                  <h4>Activity Diagram - 2FA login and Trust Zone update</h4>
+                  <a href="#" class="image main"><img src="images/SSD_Activity diagram.png" alt="" /></a>
+                  <h4>Flowchart Diagram - 2FA and Trust Model</h4>
+                  <a href="#" class="image main"><img src="images/SSD_flowchart.png" alt="" /></a>
+                  <h4>Sequence Diagram – Users access to Database</h4>
+                  <a href="#" class="image main"><img src="images/SSD_sequenceDiagram.png" alt="" /></a>
+                  <h4>Flowchart Diagram - Modified in Unit 11</h4>
+                  <a href="#" class="image main"><img src="images/SSD_WorkFlow_fix.png" alt="" /></a>
+                  <h4>Sequence Diagram – Modified in Unit 11</h4>
+                  <a href="#" class="image main"><img src="images/SSD_Sequence Diagram_fix.png" alt="" /></a>
+
+
+									<h3> </h3>
+									<p></p>
+									
+									<h3 style="text-align:center"><a href="#ARTEFACT">---Back to Top---</a></h3>
+									
+							</section>
+
+					</div>
+									
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
